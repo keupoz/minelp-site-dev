@@ -1,0 +1,6 @@
+menu
+    each path, name in site.menu
+        if dev
+            - path = `${path}/index.pug`;
+
+        a(class={"current": name == menuEntry}, href=path)= name

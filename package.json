@@ -1,0 +1,41 @@
+{
+    "name": "minelpsite",
+    "version": "1.0.0",
+    "description": "MineLP site",
+    "scripts": {
+        "build": "parcel build src/pages/*.pug src/pages/pages/**/index.pug --no-cache",
+        "dev": "parcel serve src/pages/*.pug --no-cache"
+    },
+    "dependencies": {
+        "@fortawesome/fontawesome-free": "^5.13.0",
+        "file-saver": "^2.0.2"
+    },
+    "devDependencies": {
+        "glob": "^7.1.6",
+        "markdown-it": "^10.0.0",
+        "markdown-it-anchor": "^5.2.7",
+        "markdown-it-attrs": "^3.0.2",
+        "markdown-it-toc-done-right": "github:keupoz/markdown-it-toc-done-right",
+        "parcel": "^2.0.0-alpha.3.2",
+        "pug": "^2.0.4",
+        "sass": "^1.26.5",
+        "tslint": "^6.1.2",
+        "typescript": "^3.8.3",
+        "yaml": "^1.9.2"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MineLittlePony/minelittlepony.github.io.git"
+    },
+    "keywords": [
+        "minecraft",
+        "mlp",
+        "minelp"
+    ],
+    "author": "keupoz",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/MineLittlePony/minelittlepony.github.io/issues"
+    },
+    "homepage": "https://github.com/MineLittlePony/minelittlepony.github.io#readme"
+}
