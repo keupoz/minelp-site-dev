@@ -11,6 +11,7 @@
         "file-saver": "^2.0.2"
     },
     "devDependencies": {
+        "chokidar": "^3.4.0",
         "glob": "^7.1.6",
         "markdown-it": "^10.0.0",
         "markdown-it-anchor": "^5.2.7",
@@ -19,6 +20,7 @@
         "parcel": "^2.0.0-alpha.3.2",
         "pug": "^2.0.4",
         "sass": "^1.26.5",
+        "touch": "^3.1.0",
         "tslint": "^6.1.2",
         "typescript": "^3.8.3",
         "yaml": "^1.9.2"
