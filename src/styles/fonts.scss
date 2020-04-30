@@ -1,0 +1,19 @@
+@font-face {
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    src: url("~/node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Roboto Slab";
+    font-weight: 400;
+    src: local("Roboto Slab Regular"), local("RobotoSlab-Regular"),
+        url("~/src/assets/fonts/RobotoSlab-Regular.ttf") format("truetype");
+}
+
+@font-face {
+    font-family: "Roboto Slab";
+    font-weight: 700;
+    src: local("Roboto Slab Bold"), local("RobotoSlab-Bold"),
+        url("~/src/assets/fonts/RobotoSlab-Bold.ttf") format("truetype");
+}

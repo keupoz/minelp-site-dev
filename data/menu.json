@@ -1,4 +1,7 @@
 {
     "Home": "/",
-    "Installation": "/installation"
+    "Installation": "/installation/",
+    "Skinning guide": "/skinning/",
+    "Tools": "/tools/",
+    "Team": "/team/"
 }

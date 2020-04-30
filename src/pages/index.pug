@@ -3,6 +3,42 @@ extends ../layout.pug
 block settings
     - var title = "Home";
     - var menuEntry = "Home";
+    - var css = "home";
 
 block content
-    h1 Hello !{icons["ad"]}
+    .intro
+        .intro--about
+            h2 Welcome to the official Mine Little Pony site!
+            p This is the official site of Mine Little Pony mod which contains latest releases of the mod, actual installation and skinning guides, and more.
+
+        .intro--links
+            h1.intro--links__label Get the mod now!
+
+            .intro--links__download
+                a.release(href="https://github.com/MineLittlePony/MineLittlePony/releases", target="_blank") Download
+                a.beta(href="#", target="_blank", hidden) Pre-release
+                a(href="https://fabricmc.net/use/", target="_blank") Get Fabric
+                a(href="https://github.com/MineLittlePony/HDSkins/releases", target="_blank") Get HD Skins (optional)
+
+            .intro--links__extra
+                a(href="https://github.com/MineLittlePony/MineLittlePony/releases", target="_blank") All releases
+                a(href="https://github.com/MineLittlePony/MineLittlePony", target="_blank") Source code
+                a(href=site.links.megaArchive, target="_blank") Archive
+
+            .flex-grow
+
+            .intro--links__social
+                a(href=site.links.discordInvite, target="_blank")
+                    img(src="~/src/assets/discord_logo.svg")
+
+    .cards--container
+        each card in data.cards.features
+            +icon-card(card)
+
+    .link-cards
+        h1 Extra downloads for better experience:
+
+        .cards--container
+            each card in data.cards.links
+                if !card.hidden
+                    +link-card(card)

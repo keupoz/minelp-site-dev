@@ -1,0 +1,77 @@
+$icon-size: 70px;
+
+.cards--container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    background: white;
+    box-shadow: 0 8px 16px rgba(black, 0.1);
+    margin: 10px;
+
+    flex-basis: 30%;
+
+    img {
+        width: 100%;
+    }
+
+    &--icon {
+        background: gray;
+        border-radius: 50%;
+        box-shadow: 0 0 0 5px white;
+        color: white;
+        font-size: 32px;
+        line-height: $icon-size;
+        margin: -($icon-size / 2) auto 0;
+        text-align: center;
+
+        width: $icon-size;
+        height: $icon-size;
+
+        position: relative;
+    }
+
+    &--description {
+        color: #555;
+        padding: 0 20px 20px;
+        text-align: center;
+    }
+
+    &--title {
+        padding: 10px 20px;
+        text-align: center;
+    }
+
+    &.link {
+        &:hover {
+            transform: translateY(-1px);
+        }
+
+        &:active {
+            box-shadow: 0 4px 8px rgba(black, 0.1);
+            transform: translateY(2px);
+        }
+
+        & > a {
+            color: inherit;
+            display: block;
+            text-decoration: none !important;
+        }
+
+        .card--title {
+            background: gray;
+            color: white;
+            display: block;
+            font-size: 1.2em;
+            font-weight: 700;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .card--description {
+            padding-top: 15px;
+        }
+    }
+}

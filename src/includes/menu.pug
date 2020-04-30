@@ -1,6 +1,14 @@
 menu
-    each path, name in site.menu
-        if dev
-            - path = `${path}/index.pug`;
+    .logo
+        a(href="/")
+            img(src="~/src/assets/logo.png")
 
-        a(class={"current": name == menuEntry}, href=path)= name
+    .flex-grow
+
+    ul
+        each path, name in site.menu
+            if dev
+                - path = `${path}index.pug`;
+
+            li
+                a(class={"current": name == menuEntry}, href=path)= name

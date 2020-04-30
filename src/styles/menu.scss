@@ -1,0 +1,50 @@
+@import "variables";
+
+@import "mixins/stripe";
+
+$top-bar-height: 150px;
+
+menu {
+    font-size: 1.2em;
+    font-weight: 700;
+    line-height: floor($top-bar-height / 3);
+    padding: 0 $content-padding;
+
+    height: $top-bar-height;
+
+    display: flex;
+    align-items: center;
+
+    .logo img {
+        height: 80%;
+    }
+
+    ul {
+        list-style: none;
+
+        display: flex;
+        flex-direction: row;
+
+        a {
+            @include stripe(bottom, 0px);
+
+            padding: 0 25px;
+            transition: background-size 100ms;
+
+            &.current,
+            &:hover {
+                background-size: 100% 5px;
+            }
+        }
+
+        & li:not(:last-child) a {
+            border-right: 2px solid #ddd;
+        }
+    }
+
+    a {
+        display: block;
+        color: inherit;
+        text-decoration: none;
+    }
+}

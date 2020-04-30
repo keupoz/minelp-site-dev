@@ -1,0 +1,24 @@
+[
+    {
+        "image": "links/lnt",
+        "url": "https://www.minecraftforum.net/forums/mapping-and-modding-java-edition/resource-packs/2787763-love-tolerance-l-t-updated-to-1-12-x",
+        "color": "#fd3f9e",
+        "title": "Get Info",
+        "description": "Complete the Mine Little Pony experience with the Love&nbsp;&amp;&nbsp;Tolerance resource pack"
+    },
+    {
+        "image": "links/skinpack",
+        "url": "https://mega.nz/#!JEwnwSKZ!6QCj2Ua_anukJo-NwQe8qlU3QluVY4bv9ppHh3zeEUM",
+        "color": "#009dff",
+        "title": "Download",
+        "description": "Get a quick start with this pack of more than 200 canon Mine Little Pony compatible skins"
+    },
+    {
+        "hidden": true,
+        "image": "links/[Server Name]",
+        "url": "[Server link goes here if we ever have one again]",
+        "color": "#fd883f",
+        "title": "Go to [Server]",
+        "description": "Don't play alone! Join Equestria Cubed and be ponies together in the best recreation of Equestria"
+    }
+]

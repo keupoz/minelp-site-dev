@@ -36,17 +36,14 @@ function processJson(path) {
 
     joinPath(parsed.dir, parsed.name).split("/").reduce((prev, curr, index, arr) => {
         if (index == arr.length - 1) {
+            if (DATA_CACHE[path]) {
+                Object.keys(DATA_CACHE[path]).forEach((key) => {
+                    delete prev[curr][key];
+                });
+            }
 
             prev[curr] = Object.assign(prev[curr] || {}, json);
             updated.object = prev[curr];
-
-            if (DATA_CACHE[path]) {
-                Object.keys(DATA_CACHE[path]).forEach((key) => {
-                    if (!(key in json)) {
-                        delete prev[curr][key];
-                    }
-                });
-            }
         } else {
             prev[curr] = prev[curr] || {};
         }
@@ -96,10 +93,9 @@ if (process.env.NODE_ENV !== "production") {
     /** @param {string} path */
     const update = (path) => {
         const updated = processJson(path);
+
         if (process.env.NODE_ENV == "debug") {
             console.log(`Updated object "${updated.path}":`, updated.object);
-        } else {
-            console.log(`Updated object "${updated.path}"`);
         }
 
         touch("./src/layout.pug", { nocreate: true });
@@ -116,9 +112,9 @@ if (process.env.NODE_ENV !== "production") {
         .on("change", update)
         .on("unlink", (path) => {
             const deletedPath = deleteObject(path);
-            console.log(`Deleted object "${deletedPath}"`);
 
             if (process.env.NODE_ENV == "debug") {
+                console.log(`Deleted object "${deletedPath}"`);
                 console.log("New DATA object:", DATA);
             }
 

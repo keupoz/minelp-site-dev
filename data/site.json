@@ -2,5 +2,9 @@
     "title": "%s - Mine Little Pony",
     "name": "Mine Little Pony Official site",
     "url": "https://minelittlepony-mod.com",
-    "description": "Official site of Minecraft mod Mine Little Pony that turns player into a pony"
+    "description": "Official site of Minecraft mod Mine Little Pony that turns player into a pony",
+    "links": {
+        "megaArchive": "https://mega.nz/#F!NYJQGILa!X70azQPM_psKwpBPW2EleQ",
+        "discordInvite": "https://discord.gg/zKSZ8Mg"
+    }
 }

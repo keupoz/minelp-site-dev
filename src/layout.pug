@@ -2,6 +2,24 @@ block settings
 
 - var title = title ? site.title.replace("%s", title) : site.name;
 - var description = description || site.description;
+- var js = js || (dev ? "_dumb" : null);
+
+mixin icon(name)
+    != icons[name]
+
+mixin icon-card(card)
+    .card
+        img(src=`~/src/assets/cards/${card.image}.png`)
+        .card--icon(style={ "background": card.color }) #[+icon(card.icon)]
+        h2.card--title!= card.title
+        .card--description!= card.description
+
+mixin link-card(card)
+    .card.link
+        a(href=card.url, target="_blank", download=card.download ? "" : false)
+            img(src=`~/src/assets/cards/${card.image}.png`)
+            h2.card--title(style={ "background": card.color })!= card.title
+            .card--description!= card.description
 
 html
     head
