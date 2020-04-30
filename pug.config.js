@@ -1,8 +1,10 @@
 const { readFileSync } = require("fs");
 const { join: joinPath, parse: parsePath } = require("path");
 
+const chokidar = require("chokidar");
 const glob = require("glob");
 const MarkdownIt = require("markdown-it");
+const touch = require("touch");
 const { parse: parseYaml } = require("yaml");
 
 
@@ -22,21 +24,110 @@ const ICONS = {};
 
 const DATA = {};
 
-glob.sync("**/*.json", { cwd: "data" }).forEach((path) => {
-    const json = require(`./data/${path}`);
+const DATA_CACHE = {};
+
+/** @param {string} path */
+function processJson(path) {
+    const jsonFile = readFileSync(`./data/${path}`, { encoding: "utf-8" });
+    const json = JSON.parse(jsonFile);
     const parsed = parsePath(path);
 
-    joinPath(parsed.dir, parsed.name).split("/").reduce((prev, curr) => {
-        prev[curr] = Object.assign(prev[curr] || {}, json);
+    const updated = { path: "DATA", object: null };
+
+    joinPath(parsed.dir, parsed.name).split("/").reduce((prev, curr, index, arr) => {
+        if (index == arr.length - 1) {
+
+            prev[curr] = Object.assign(prev[curr] || {}, json);
+            updated.object = prev[curr];
+
+            if (DATA_CACHE[path]) {
+                Object.keys(DATA_CACHE[path]).forEach((key) => {
+                    if (!(key in json)) {
+                        delete prev[curr][key];
+                    }
+                });
+            }
+        } else {
+            prev[curr] = prev[curr] || {};
+        }
+
+        updated.path += `.${curr}`;
         return prev[curr];
     }, DATA);
+
+    DATA_CACHE[path] = json;
+
+    return updated;
+}
+
+/** @param {string} path */
+function deleteObject(path) {
+    const parsed = parsePath(path);
+
+    let objectPath = "DATA";
+
+    joinPath(parsed.dir, parsed.name).split("/").reduce((prev, curr, index, arr) => {
+        if (index == arr.length - 1) {
+            if (DATA_CACHE[path]) {
+                Object.keys(DATA_CACHE[path]).forEach((key) => {
+                    delete prev[curr][key];
+                });
+
+                if (!Object.keys(prev[curr]).length) {
+                    delete prev[curr];
+                }
+            }
+        }
+
+        objectPath += `.${curr}`;
+        return prev[curr];
+    }, DATA);
+
+    delete DATA_CACHE[path];
+
+    return objectPath;
+}
+
+glob.sync("**/*.json", { cwd: "data" }).forEach((path) => {
+    processJson(path);
 });
+
+if (process.env.NODE_ENV !== "production") {
+    /** @param {string} path */
+    const update = (path) => {
+        const updated = processJson(path);
+        if (process.env.NODE_ENV == "debug") {
+            console.log(`Updated object "${updated.path}":`, updated.object);
+        } else {
+            console.log(`Updated object "${updated.path}"`);
+        }
+
+        touch("./src/layout.pug", { nocreate: true });
+    };
+
+    const watcher = chokidar.watch("**/*.json", {
+        cwd: "data",
+        awaitWriteFinish: true,
+        ignoreInitial: true
+    });
+
+    watcher
+        .on("add", update)
+        .on("change", update)
+        .on("unlink", (path) => {
+            const deletedPath = deleteObject(path);
+            console.log(`Deleted object "${deletedPath}"`);
+
+            if (process.env.NODE_ENV == "debug") {
+                console.log("New DATA object:", DATA);
+            }
+
+            touch("./src/layout.pug", { nocreate: true });
+        });
+}
 
 const SITE = DATA.site;
 SITE.menu = DATA.menu;
-
-delete DATA.site;
-delete DATA.menu;
 
 const md = new MarkdownIt({
     html: false,
