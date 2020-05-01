@@ -25,7 +25,7 @@
         "description": "Mobs have also been transformed into ponies and can be textured using resource packs",
         "color": "#3f72e5",
         "image": "features/mobs",
-        "icon": "skull-crossbones"
+        "icon": "skull"
     },
     {
         "title": "HD Skins",

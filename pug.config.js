@@ -132,8 +132,16 @@ const md = new MarkdownIt({
 });
 
 md.use(require("markdown-it-attrs"));
-md.use(require("markdown-it-anchor"));
-md.use(require("markdown-it-toc-done-right"));
+
+md.use(require("markdown-it-anchor"), {
+    permalink: true,
+    permalinkBefore: true,
+    permalinkSymbol: "§"
+});
+
+md.use(require("markdown-it-toc-done-right"), {
+    listType: "ul"
+});
 
 /** @param {string} text */
 function markdown(text) {

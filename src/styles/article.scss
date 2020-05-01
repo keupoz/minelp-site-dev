@@ -8,9 +8,25 @@
         }
     }
 
-    ul {
+    ul,
+    ol {
         margin: 10px;
         margin-left: 2em;
+    }
+
+    .table-of-contents::before {
+        content: "Contents";
+
+        font-size: 1.2em;
+        font-weight: bold;
+    }
+
+    .header-anchor {
+        color: #c0c0c0;
+
+        &:hover {
+            color: #808080;
+        }
     }
 
     p {
@@ -43,6 +59,7 @@
         background: #eee;
         border-radius: 3px;
         padding: 2px 5px;
+        white-space: nowrap;
     }
 
     blockquote {
