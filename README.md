@@ -42,7 +42,7 @@ Accessed via `site` Pug local.
 ```
 
 ### Site menu
-Accessed via `site.menu`. The site menu.
+Accessed via `site.menu`.
 
 ```jsonc
 {
@@ -53,13 +53,25 @@ Accessed via `site.menu`. The site menu.
 }
 ```
 
+### FAQ
+Accessed via `data.faq`. Properties of FAQ entry are passed to markdown parser, so they do support markdown syntax.
+
+```jsonc
+[
+    {
+        "question": "The question",
+        "answer": "The answer"
+    }
+]
+```
+
 ### Cards
 Cards are accessed via `data.cards`.
 
 #### Icon cards
 Pass these cards to `icon-card` Pug mixin:
 ```pug
-+icon-card(data.cards.features["0"])
++icon-card(data.cards.features[0])
 ```
 
 ```jsonc
@@ -71,8 +83,8 @@ Pass these cards to `icon-card` Pug mixin:
         "color": "red",
         // Image of the card. Images are stored in src/assets/cards/${path}.png
         "image": "type/name",
-        // FontAwesome 5 Free icon. Search for icons here: https://fontawesome.com/icons?d=gallery&s=solid&m=free
-        // Only solid icons are currently enabled
+        // FontAwesome 5 Free icon. Search for icons here: https://fontawesome.com/icons?d=gallery&s=brands,solid&m=free
+        // Only solid and brands icons are currently enabled
         "icon": "share-alt"
     }
 ]
@@ -81,7 +93,7 @@ Pass these cards to `icon-card` Pug mixin:
 #### Link cards
 Pass these cards to `link-card` Pug mixin:
 ```pug
-+link-card(data.cards.links["0"])
++link-card(data.cards.links[0])
 ```
 
 ```jsonc
@@ -103,6 +115,31 @@ Pass these cards to `link-card` Pug mixin:
         "title": "Title of the card",
         "description": "Description of the card"
     }
+]
+```
+
+#### Team cards
+Pass these cards to `team-card` Pug mixin:
+```pug
++team-card(data.cards.team[0])
+```
+
+```jsonc
+[
+    {
+        "name": "Member name",
+        "description": "Member role",
+        // Optional
+        "nickname": "Member Minecraft nickname",
+        // src/assets/cards/${path}
+        "avatar": "team/avatar.ext",
+        // Social links. Optional
+        "social": {
+            "github": "username",
+            "twitter": "username",
+            "vk": "username"
+        }
+    },
 ]
 ```
 
