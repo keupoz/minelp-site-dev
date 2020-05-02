@@ -8,8 +8,6 @@ First, you need to donwload these files. LiteLoader installer should have `.exe`
 - [LiteLoader installer](https://www.liteloader.com/download){target="_blank"}
 - [Mine Little Pony mod](https://github.com/MineLittlePony/MineLittlePony/releases/tag/1.12.2.3.2.7){target="_blank"}
 
-> All files above are required except HD Skins mod. This mod lets you upload skins to our own skin server via in-game interface which also supports HD skins.
-
 ## Installing LiteLoader
 Once you've downloaded all the files you need to install LiteLoader. Open your downloaded installer file (e.g.&nbsp;`liteloader-installer-1.12.2-00-SNAPSHOT.jar`) and follow instructions on the screen.
 
