@@ -1,0 +1,10 @@
+extends ../../layout.pug
+
+block settings
+    - var title = "FAQ";
+    - var menuEntry = "FAQ";
+    - var description = "Frequently asked questions about Mine Little Pony mod";
+    - var md = data.faq.map((item) => `## ${item.question}\n${item.answer}`).join("\n\n");
+
+block content
+    != markdown(`[[toc]]\n${md}`)

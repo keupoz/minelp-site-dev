@@ -14,11 +14,15 @@
         margin-left: 2em;
     }
 
-    .table-of-contents::before {
-        content: "Contents";
+    .table-of-contents {
+        margin-bottom: 1em;
 
-        font-size: 1.2em;
-        font-weight: bold;
+        &::before {
+            content: "Contents";
+
+            font-size: 1.2em;
+            font-weight: bold;
+        }
     }
 
     .header-anchor {

@@ -1,0 +1,46 @@
+[
+    {
+        "question": "What is the Meaning of Life?",
+        "answer": "[What does this have to do with the mod?](https://youtu.be/p4iPdz2yhxA){target=\"_blank\"}"
+    },
+    {
+        "question": "Why does it take my skin so long to update?",
+        "answer": "Sometimes it takes the skin server a little longer to update. Please be patient and wait until your skin updates"
+    },
+    {
+        "question": "Why is this page so empty?",
+        "answer": "There are not enough frequently asked questions. But feel free to ask them on the [Discord server](https://discord.gg/zKSZ8Mg){target=\"_blank\"}"
+    },
+    {
+        "question": "Does FillyCam still work?",
+        "answer": "FillyCam has been discontinued. Use [BigPony](https://github.com/MineLittlePony/BigPony/releases){target=\"_blank\"} instead"
+    },
+    {
+        "question": "Is there a Forge version?",
+        "answer": "No, but with pre 1.13 versions, LiteLoader [can be installed as a Forge mod](http://www.liteloader.com/explore/docs/user:install:forge){target=\"_blank\"}"
+    },
+    {
+        "question": "How do I retrieve my skin from the server?",
+        "answer": "If you are using an official Minecraft account you can do it [here](/tools/#retriever)"
+    },
+    {
+        "question": "Where do I report bugs?",
+        "answer": "You can do it on GitHub [here](https://github.com/MineLittlePony/MineLittlePony/issues){target=\"_blank\"} or in channel `#bugs` of [Discord server](https://discord.gg/zKSZ8Mg){target=\"_blank\"}"
+    },
+    {
+        "question": "Does this mod provide any extra abilities?",
+        "answer": "No, the mod only transforms the player model into pony. It doesn't provide any magical abilities and doesn't allow you to fly in survival mode. But you can find additional mods which do"
+    },
+    {
+        "question": "When is the next version going to be released?",
+        "answer": "[Mods are hard ok?? No but really, these things take time, your patience is really appreciated! (We're just as excited for the new versions as you are, trust me!)](https://www.youtube.com/watch?v=0d6yBHDvKUw){target=\"_blank\"}"
+    },
+    {
+        "question": "Does this mod work on the console or mobile versions?",
+        "answer": "Unfortunately not, we do not currently have the ability to port the mod to those versions."
+    },
+    {
+        "question": "Why can't I upload skins on cracked versions?",
+        "answer": "Uploading skins is only available on legitimate paid versions of the game. We do not support pirated or cracked copies, this is out of our control."
+    }
+]
