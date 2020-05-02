@@ -1,0 +1,13 @@
+extends ../../layout.pug
+
+block settings
+    - var title = "Team";
+    - var menuEntry = "Team";
+    - var description = "Special thanks to all the talented artists, coders, and people who have contributed to the mod's development over the years";
+
+block content
+    h2 The Development team
+
+    .cards--container__team
+        each card in data.cards.team
+            +team-card(card)

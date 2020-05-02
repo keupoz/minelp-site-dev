@@ -21,6 +21,32 @@ mixin link-card(card)
             h2.card--title(style={ "background": card.color })!= card.title
             .card--description!= card.description
 
+mixin social-link(url, icon_name, hint)
+    a(href=url, title=hint, target="_blank")
+        +icon(icon_name)
+
+mixin team-card(card)
+    .card--team
+        img(src=`~/src/assets/cards/${card.avatar}`)
+        .card--team__content
+            h3.card--team__name
+                != card.name
+                if card.nickname
+                    span.card--team__nickname(title="Minecraft nickname")!= `&nbsp;(${card.nickname})`
+
+            if card.social
+                .card--team__social
+                    if card.social.github
+                        +social-link(`https://github.com/${card.social.github}`, "github", "GitHub")
+
+                    if card.social.twitter
+                        +social-link(`https://twitter.com/${card.social.twitter}`, "twitter", "Twitter")
+
+                    if card.social.vk
+                        +social-link(`https://vk.com/${card.social.vk}`, "vk", "VK")
+
+            .card--team__description!= card.description
+
 html
     head
         title= title

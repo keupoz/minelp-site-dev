@@ -75,3 +75,50 @@ $icon-size: 70px;
         }
     }
 }
+
+.cards--container__team {
+    display: grid;
+    grid-template-columns: 50% 50%;
+}
+
+.card--team {
+    background: white;
+    box-shadow: 0 2px 8px rgba(black, 0.1);
+    border: 1px solid #eee;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 10px;
+
+    display: flex;
+    align-items: center;
+
+    img {
+        border-radius: 50%;
+        margin-right: 10px;
+
+        width: 75px;
+    }
+
+    &__nickname {
+        color: #a0a0a0;
+    }
+
+    &__social a {
+        $size: 1.2em;
+
+        display: inline-block;
+        font-size: $size;
+        text-align: center;
+        text-decoration: none !important;
+
+        width: $size;
+
+        &:not(:hover) {
+            color: #a0a0a0 !important;
+        }
+    }
+
+    &__description {
+        text-align: justify;
+    }
+}

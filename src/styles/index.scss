@@ -18,9 +18,10 @@ body {
     background: $stripe-url repeat-x 0 0 / 50% 5px white;
     box-shadow: 0 0 24px rgba(black, 0.1);
     color: #444;
-    font-family: "Roboto Slab", "Font Awesome 5 Free";
+    font-family: "Roboto Slab", "Font Awesome 5 Free", "Font Awesome 5 Brands";
     margin: 0 auto;
     padding-top: 5px;
+    scroll-behavior: smooth;
 
     width: 1000px;
 

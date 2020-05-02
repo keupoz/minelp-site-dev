@@ -1,1 +1,54 @@
-{ "aaa": "bbbs" }
+[
+    {
+        "name": "Matthew Messinger",
+        "description": "Mod Development Lead",
+        "nickname": "JoyJoy",
+        "avatar": "team/killjoy.jpeg",
+        "social": {
+            "github": "killjoy1221",
+            "twitter": "killjoy1221_"
+        }
+    },
+    {
+        "name": "Sollace",
+        "description": "Mod Developer",
+        "nickname": "Sollace",
+        "avatar": "team/sollace.png",
+        "social": {
+            "github": "Sollace",
+            "twitter": "SollaceTheBeard"
+        }
+    },
+    {
+        "name": "RollingTheOC",
+        "description": "Discord Server Moderator",
+        "avatar": "team/rolling.png",
+        "social": {
+            "twitter": "RollingTheOC"
+        }
+    },
+    {
+        "name": "Tiki Bat",
+        "description": "Website Maintainer",
+        "avatar": "team/tikibat.jpg",
+        "social": {
+            "twitter": "TikiBat"
+        }
+    },
+    {
+        "name": "Ivan Sokolov",
+        "description": "Website Maintainer",
+        "nickname": "keupoz_",
+        "avatar": "team/keupoz.jpeg",
+        "social": {
+            "github": "keupoz",
+            "twitter": "keupoz",
+            "vk": "keupoz"
+        }
+    },
+    {
+        "name": "Yury Polyacov",
+        "description": "QA/Quality Assurance",
+        "avatar": "team/poly.png"
+    }
+]
