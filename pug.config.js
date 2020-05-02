@@ -16,7 +16,10 @@ const ICONS = {};
     const iconsParsed = parseYaml(iconsYaml);
 
     Object.keys(iconsParsed).forEach((name) => {
-        if (Array.prototype.includes.call(iconsParsed[name].styles, "solid")) {
+        /** @type {string[]} */
+        const styles = iconsParsed[name].styles;
+
+        if (styles.some((type) => /^(solid|brands)$/.test(type))) {
             ICONS[name] = `&#x${iconsParsed[name].unicode};`;
         }
     });
@@ -36,13 +39,28 @@ function processJson(path) {
 
     joinPath(parsed.dir, parsed.name).split("/").reduce((prev, curr, index, arr) => {
         if (index == arr.length - 1) {
-            if (DATA_CACHE[path]) {
-                Object.keys(DATA_CACHE[path]).forEach((key) => {
-                    delete prev[curr][key];
-                });
+            const cache = DATA_CACHE[path];
+
+            if (cache) {
+                /** @type {any[]} */
+                const arr = prev[curr];
+
+                if (Array.isArray(cache)) {
+                    cache.forEach((item) => {
+                        const itemIndex = arr.indexOf(item);
+
+                        if (itemIndex > -1) {
+                            arr.splice(itemIndex, 1);
+                        }
+                    });
+                } else {
+                    Object.keys(cache).forEach((key) => {
+                        delete prev[curr][key];
+                    });
+                }
             }
 
-            prev[curr] = Object.assign(prev[curr] || {}, json);
+            prev[curr] = Array.isArray(json) ? [].concat(prev[curr] || [], json) : Object.assign(prev[curr] || {}, json);
             updated.object = prev[curr];
         } else {
             prev[curr] = prev[curr] || {};
@@ -122,6 +140,11 @@ if (process.env.NODE_ENV !== "production") {
         });
 }
 
+/** @param {string} text */
+function slugify(text) {
+    return encodeURIComponent(text.replace(/\s+/g, "-").replace(/(!|\?)/g, "").toLowerCase());
+}
+
 const SITE = DATA.site;
 SITE.menu = DATA.menu;
 
@@ -136,11 +159,13 @@ md.use(require("markdown-it-attrs"));
 md.use(require("markdown-it-anchor"), {
     permalink: true,
     permalinkBefore: true,
-    permalinkSymbol: "§"
+    permalinkSymbol: "§",
+    slugify
 });
 
 md.use(require("markdown-it-toc-done-right"), {
-    listType: "ul"
+    listType: "ul",
+    slugify
 });
 
 /** @param {string} text */
