@@ -12,6 +12,7 @@
 
 html {
     background: whitesmoke;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -21,7 +22,6 @@ body {
     font-family: "Roboto Slab", "Font Awesome 5 Free", "Font Awesome 5 Brands";
     margin: 0 auto;
     padding-top: 5px;
-    scroll-behavior: smooth;
 
     width: 1000px;
 
