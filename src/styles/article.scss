@@ -1,19 +1,4 @@
 #content {
-    a {
-        color: dodgerblue;
-        text-decoration: none;
-
-        &:hover {
-            text-decoration: underline;
-        }
-    }
-
-    ul,
-    ol {
-        margin: 10px;
-        margin-left: 2em;
-    }
-
     .table-of-contents {
         margin-bottom: 1em;
 
@@ -31,6 +16,30 @@
         &:hover {
             color: #808080;
         }
+    }
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin: 0.5em 0;
+    }
+
+    a {
+        color: dodgerblue;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+
+    ul,
+    ol {
+        margin: 10px;
+        margin-left: 2em;
     }
 
     p {
