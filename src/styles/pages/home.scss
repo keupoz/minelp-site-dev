@@ -47,6 +47,7 @@ $banner-url: url("~/src/assets/pages/home/banner.png");
                 padding: 10px 20px;
                 text-align: center;
                 text-decoration: none;
+                white-space: nowrap;
 
                 &:first-child {
                     @include stripe(top, 5px, rgba(white, 0.9));
@@ -57,10 +58,6 @@ $banner-url: url("~/src/assets/pages/home/banner.png");
 
                 &:hover {
                     background-color: white;
-                }
-
-                &[hidden] {
-                    display: none;
                 }
             }
 
@@ -81,6 +78,8 @@ $banner-url: url("~/src/assets/pages/home/banner.png");
             }
 
             &__social {
+                margin-top: 1em;
+
                 display: flex;
                 flex-direction: row-reverse;
 
