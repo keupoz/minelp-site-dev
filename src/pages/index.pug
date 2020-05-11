@@ -4,8 +4,11 @@ block settings
     - var title = "Home";
     - var menuEntry = "Home";
     - var css = "home";
+    - var js = "home";
 
 block content
+    img.bat-secret(src="~/src/assets/pages/home/bat_easter.svg", hidden)
+
     .intro
         .intro--about
             h2 Welcome to the official Mine Little Pony site!
@@ -15,8 +18,7 @@ block content
             h1.intro--links__label Get the mod now!
 
             .intro--links__download
-                a.release(href="https://github.com/MineLittlePony/MineLittlePony/releases", target="_blank") Download
-                a.beta(href="#", target="_blank", hidden) Pre-release
+                a(href="https://github.com/MineLittlePony/MineLittlePony/releases", target="_blank") Download
                 a(href="https://fabricmc.net/use/", target="_blank") Get Fabric
                 a(href="https://github.com/MineLittlePony/HDSkins/releases", target="_blank") Get HD Skins (optional)
 
