@@ -1,0 +1,69 @@
+extends ../../layout.pug
+
+block settings
+    - var title = "Tools";
+    - var menuEntry = "Tools";
+    - var description = "Tools for fetching your skin, converting and resizing it";
+    - var css = "tools";
+    - var js = "tools";
+
+block content
+
+    //- Fetcher
+
+    //- Using markdown to generate anchors
+    != markdown("## Skin fetcher {#fetcher}")
+    p Fetch your skin from the mod's skin server. Click the image to download
+
+    blockquote
+        p It may take time to start fetcher server
+
+    form.fetcher--form
+        .fetcher--wrapper
+            .fetcher--progress
+            input.fetcher--input(type="text", spellcheck="off", placeholder="Minecraft nickname")
+
+        button.fetcher--submit(type="submit") Fetch
+        a.fetcher--convert(href="#converter", disabled) Convert
+        a.fetcher--resize(href="#resizer", disabled) Resize
+
+    p.fetcher--error
+    p
+        img.fetcher--output
+
+    //- Converter
+
+    != markdown("## Skin converter {#converter}")
+    p Convert your skin from old pre-1.8 and pre-1.8 layout to the new layout
+
+    blockquote
+        p Old pre-1.8 butt can't be fully converted due to limitations in the new layout
+
+    .settings
+        div #[input.converter--input(type="file", accept="image/png")]
+        div
+            input#chkbx0.converter--mirror(type="checkbox", disabled)
+            != "&nbsp;&nbsp;&nbsp;"
+            label(for="chkbx0") Mirror
+        div #[button.converter--download(disabled) Download]
+        div #[a.converter--resize(href="#resizer", disabled) Resize]
+
+    canvas.converter--output.empty(width="512", height="256")
+
+    //- Resizer
+
+    != markdown("## Skin resizer {#resizer}")
+    p Resize your skin not messing the trigger pixels up
+
+    .settings
+        div #[input.resizer--input(type="file", accept="image/png")]
+        div
+            label Mirror
+            != "&nbsp;&nbsp;&nbsp;"
+            input.resizer--size(type="range", value="0", min="0", max="5", step="1", disabled)
+        div #[button.resizer--download(disabled) Download]
+
+    .settings
+        div Current size:&nbsp;#[span.resizer--size__current N/A]
+
+    canvas.resizer--output.empty(width="512", height="256")

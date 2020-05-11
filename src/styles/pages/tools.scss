@@ -1,0 +1,141 @@
+@import "../variables";
+
+#content {
+    canvas,
+    .fetcher--output {
+        image-rendering: -webkit-optimize-contrast;
+        image-rendering: -moz-crisp-edges;
+        image-rendering: -o-crisp-edges;
+        image-rendering: pixelated;
+        image-rendering: optimizeSpeed;
+        image-rendering: crisp-edges;
+        -ms-interpolation-mode: nearest-neighbor;
+    }
+
+    canvas {
+        background: $transparency-url top left / 16px;
+        box-shadow: 0 8px 16px rgba(black, 0.1);
+        display: block;
+        margin: 10px auto;
+
+        max-width: 100%;
+    }
+
+    button {
+        background: dodgerblue;
+        border-bottom: 5px solid rgba(black, 0.1);
+        border-radius: 5px;
+        color: white;
+        font: inherit;
+        line-height: 32px;
+        padding: 0 10px;
+
+        height: 32px;
+
+        &:active {
+            border-bottom-width: 0;
+            line-height: 27px;
+        }
+    }
+
+    canvas.empty,
+    input:disabled,
+    button:disabled,
+    a[disabled] {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .settings {
+        margin: 10px;
+
+        display: flex;
+        justify-content: center;
+
+        div {
+            padding: 3px 10px;
+
+            display: flex;
+            align-items: center;
+
+            &:not(:last-child) {
+                border-right: 2px solid #ddd;
+            }
+        }
+    }
+
+    .converter--output {
+        min-width: 512px;
+    }
+
+    .fetcher {
+        &--form {
+            display: flex;
+            align-items: center;
+
+            input,
+            button {
+                font: inherit;
+                line-height: 50px;
+                padding: 0 20px;
+
+                height: 50px;
+            }
+            button:active {
+                line-height: 45px;
+            }
+        }
+
+        &--convert {
+            display: block;
+            margin: 0 15px;
+        }
+
+        &--wrapper {
+            border-radius: 5px;
+            margin-right: 10px;
+            overflow: hidden;
+
+            position: relative;
+
+            flex-grow: 1;
+
+            input {
+                background: whitesmoke;
+                display: block;
+
+                width: 100%;
+            }
+        }
+
+        &--progress {
+            background: dodgerblue;
+            transition: width, height;
+            transition-duration: 250ms;
+            transition-timing-function: linear;
+
+            max-width: 100%;
+            width: 0;
+            height: 0;
+
+            position: absolute;
+            bottom: 0;
+
+            &.show {
+                height: 5px;
+            }
+        }
+
+        &--error {
+            color: tomato;
+
+            &:empty {
+                display: none;
+            }
+        }
+
+        &--output {
+            min-width: 25%;
+        }
+    }
+}
