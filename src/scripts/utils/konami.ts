@@ -19,13 +19,14 @@ export function konami(callback: () => void) {
     let codePosition = 0;
 
     document.addEventListener("keydown", (e) => {
-        if (e.keyCode == KONAMI_CODE[codePosition]) {
+        if (e.keyCode !== KONAMI_CODE[codePosition]) codePosition = 0;
+        else {
             codePosition++;
 
             if (codePosition == KONAMI_CODE.length) {
                 callback();
                 codePosition = 0;
             }
-        } else codePosition = 0;
+        }
     });
 }
