@@ -3,7 +3,7 @@
     "version": "1.0.0",
     "description": "MineLP site",
     "scripts": {
-        "build": "parcel build src/pages/*.pug src/pages/pages/**/index.pug --no-cache",
+        "build": "parcel build src/pages/*.pug src/pages/**/index.pug --no-cache",
         "dev": "parcel serve src/pages/*.pug --no-cache"
     },
     "dependencies": {
